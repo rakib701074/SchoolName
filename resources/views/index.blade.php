@@ -1,57 +1,12 @@
 @extends('layouts.main')
 @section('main-container')
-    <section class="vbox">
-        <header class="bg-dark dk header navbar navbar-fixed-top-xs">
-            <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen,open"
-                    data-target="#nav,html"> <i class="fa fa-bars"></i> </a> <a href="#" class="navbar-brand"
-                    data-toggle="fullscreen"><img src="{{ url('frontend/images/logo.png') }}" class="m-r-sm">SCHOOL
-                    NAME</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i
-                        class="fa fa-cog"></i> </a> </div>
+<section class="vbox">
 
+    
 
-            <ul class="nav navbar-nav navbar-right m-n hidden-xs nav-user">
-                <li class="hidden-xs">
+      
 
-
-
-                    <section class="dropdown-menu aside-xl">
-                        <section class="panel bg-white">
-
-                        </section>
-                    </section>
-                </li>
-                <li class="dropdown hidden-xs">
-
-
-
-                    <section class="dropdown-menu aside-xl animated fadeInUp">
-                        <section class="panel bg-white">
-                            <form role="search">
-                                <div class="form-group wrapper m-b-none">
-                                    <div class="input-group"> <input type="text" class="form-control"
-                                            placeholder="Search"> <span class="input-group-btn"> <button type="submit"
-                                                class="btn btn-info btn-icon"><i class="fa fa-search"></i></button>
-                                        </span> </div>
-                                </div>
-                            </form>
-                        </section>
-                    </section>
-                </li>
-
-
-                <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span
-                            class="thumb-sm avatar pull-left"> <img src="{{ url('frontend/images/avatar.jpg') }}"> </span>
-                        John.Smith <b class="caret"></b> </a>
-                    <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
-                        <li> <a href="#">Settings</a> </li>
-                        <li> <a href="backend.profile">Profile</a> </li>
-
-                        <li class="divider"></li>
-                        <li> <a href="{{ route('log') }}" data-toggle="ajaxModal">Logout</a> </li>
-                    </ul>
-                </li>
-            </ul>
-        </header>
+        {{-- sidebar --}}
         <section>
             <section class="hbox stretch"> <!-- .aside -->
                 <aside class="bg-dark lter aside-md hidden-print hidden-xs" id="nav">
@@ -77,15 +32,18 @@
                                 data-size="5px" data-color="#333333"> <!-- nav -->
                                 <nav class="nav-primary hidden-xs">
                                     <ul class="nav">
+                                        <li> <a href="{{ route('dashboard') }}"> <i class="fa fa-pencil icon"> <b
+                                                        class="bg-info"></b> </i> <span>Dashboard</span> </a> </li>
                                         <li class="active">
                                             <a href="{{ route('dashboard') }}" class="active">
-                                                <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i> <span
-                                                    class="pull-right"> <i class="fa fa-angle-down text"></i> <i
+                                                <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i>
+                                                <span class="pull-right">
+                                                    <i class="fa fa-angle-down text"></i> <i
                                                         class="fa fa-angle-up text-active"></i> </span>
-                                                <span>Dashboard</span> </a>
+                                                <span>Student Info</span> </a>
                                             <ul class="nav lt">
-                                                <li class="active"> <a href="{{Route('table')}}" class="active"> <i
-                                                            class="fa fa-angle-right"></i> <span><b>Student Info</b></span>
+                                                <li class="active"> <a href="{{ Route('students') }}" class="active"> <i
+                                                            class="fa fa-angle-right"></i> <span><b>Students</b></span>
                                                     </a> </li>
                                                 <li> <a href="dashboard.html"> <i class="fa fa-angle-right"></i>
                                                         <span><b>Student DataTable</b></span> </a> </li>
@@ -95,70 +53,18 @@
 
                                         {{-- dashboard --}}
 
-                                        <li> <a href="#uikit"> <i class="fa fa-flask icon"> <b class="bg-success"></b>
-                                                </i> <span class="pull-right"> <i class="fa fa-angle-down text"></i>
-                                                    <i class="fa fa-angle-up text-active"></i> </span> <span>UI
-                                                    kit</span> </a>
-                                            <ul class="nav lt">
-                                                <li> <a href="buttons.html"> <i class="fa fa-angle-right"></i>
-                                                        <span>Buttons</span> </a> </li>
-                                                <li> <a href="icons.html"> <b class="badge bg-info pull-right">369</b>
-                                                        <i class="fa fa-angle-right"></i> <span>Icons</span> </a>
-                                                </li>
-                                                <li> <a href="grid.html"> <i class="fa fa-angle-right"></i>
-                                                        <span>Grid</span> </a> </li>
-                                                <li> <a href="widgets.html"> <b class="badge pull-right">8</b> <i
-                                                            class="fa fa-angle-right"></i> <span>Widgets</span>
-                                                    </a>
-                                                </li>
-                                                <li> <a href="components.html"> <i class="fa fa-angle-right"></i>
-                                                        <span>Components</span> </a> </li>
-                                                <li> <a href="list.html"> <i class="fa fa-angle-right"></i>
-                                                        <span>List
-                                                            group</span> </a> </li>
-                                                <li> <a href="#table"> <i class="fa fa-angle-down text"></i> <i
-                                                            class="fa fa-angle-up text-active"></i>
-                                                        <span>Table</span>
-                                                    </a>
-                                                    <ul class="nav bg">
-                                                        <li> <a href="{{ url('frontend/table-static.blade.php') }}">
-                                                                <i class="fa fa-angle-right"></i> <span>Table
-                                                                    static</span> </a> </li>
-                                                        <li> <a href="{{ url('frontend/table-datatable.html') }}">
-                                                                <i class="fa fa-angle-right"></i>
-                                                                <span>Datatable</span> </a> </li>
-                                                        <li> <a href="table-datagrid.html"> <i
-                                                                    class="fa fa-angle-right"></i>
-                                                                <span>Datagrid</span>
-                                                            </a> </li>
-                                                    </ul>
-                                                </li>
-                                                <li> <a href="#form"> <i class="fa fa-angle-down text"></i> <i
-                                                            class="fa fa-angle-up text-active"></i>
-                                                        <span>Form</span>
-                                                    </a>
-                                                    <ul class="nav bg">
-                                                        <li> <a href="form-elements.html"> <i
-                                                                    class="fa fa-angle-right"></i> <span>Form
-                                                                    elements</span> </a> </li>
-                                                        <li> <a href="form-validation.html"> <i
-                                                                    class="fa fa-angle-right"></i> <span>Form
-                                                                    validation</span> </a> </li>
-                                                        <li> <a href="form-wizard.html"> <i class="fa fa-angle-right"></i>
-                                                                <span>Form
-                                                                    wizard</span> </a> </li>
-                                                    </ul>
-                                                </li>
-                                                <li> <a href="backend.chart"> <i class="fa fa-angle-right"></i>
-                                                        <span>Chart</span> </a> </li>
-                                                <li> <a href="backend.fullcalendar"> <i class="fa fa-angle-right"></i>
-                                                        <span>Fullcalendar</span> </a> </li>
-                                                <li> <a href="backend.portlet"> <i class="fa fa-angle-right"></i>
-                                                        <span>Portlet</span> </a> </li>
-                                                <li> <a href="backend.timeline"> <i class="fa fa-angle-right"></i>
-                                                        <span>Timeline</span> </a> </li>
-                                            </ul>
+                                        <li> <a href="{{route('signin')}}"> <i class="fa fa-flask icon"> <b class="bg-success"></b>
+                                                </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i> </span> <span>Sign
+                                                    In</span> </a>
+                                                    </li>
+
+                                        <li> <a href="{{route('signup')}}"> <i class="fa fa-flask icon"> <b class="bg-success"></b>
+                                                </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
+                                                    <i class="fa fa-angle-up text-active"></i> </span> <span>Sign 
+                                                    Up</span> </a>
                                         </li>
+
 
 
                 </aside> <!-- /.aside -->
@@ -167,10 +73,10 @@
                         <section class="scrollable padder">
                             <ul class="breadcrumb no-border no-radius b-b b-light pull-in">
                                 <li><a href="backend.index"><i class="fa fa-home"></i> Home</a></li>
-                                <li class="active">Employee WorkSheet</li>
+                                <li class="active">Students WorkSheet</li>
                             </ul>
                             <div class="m-b-md">
-                                <h3 class="m-b-none">Employee analytics</h3> <small>Welcome back, Employee</small>
+                                <h3 class="m-b-none">Students analytics</h3> <small>Welcome back, Students</small>
                             </div>
                             <section class="panel panel-default">
                                 <div class="row m-l-none m-r-none bg-light lter">
