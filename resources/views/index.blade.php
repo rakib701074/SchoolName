@@ -1,73 +1,7 @@
 @extends('layouts.main')
 @section('main-container')
-<section class="vbox">
 
-    
-
-      
-
-        {{-- sidebar --}}
-        <section>
-            <section class="hbox stretch"> <!-- .aside -->
-                <aside class="bg-dark lter aside-md hidden-print hidden-xs" id="nav">
-                    <section class="vbox">
-                        <header class="header bg-primary lter text-center clearfix">
-                            <div class="btn-group"> <button type="button" class="btn btn-sm btn-dark btn-icon"
-                                    title="New project"><i class="fa fa-plus"></i></button>
-                                <div class="btn-group hidden-nav-xs"> <button type="button"
-                                        class="btn btn-sm btn-primary dropdown-toggle" data-toggle="dropdown"> Switch
-                                        Project <span class="caret"></span> </button>
-                                    <ul class="dropdown-menu text-left">
-                                        <li><a href="#">Project</a></li>
-                                        <li><a href="#">Another Project</a></li>
-                                        <li><a href="#">More Projects</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </header>
-                        {{-- scrollable --}}
-
-                        <section class="w-f scrollable">
-                            <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
-                                data-size="5px" data-color="#333333"> <!-- nav -->
-                                <nav class="nav-primary hidden-xs">
-                                    <ul class="nav">
-                                        <li> <a href="{{ route('dashboard') }}"> <i class="fa fa-pencil icon"> <b
-                                                        class="bg-info"></b> </i> <span>Dashboard</span> </a> </li>
-                                        <li class="active">
-                                            <a href="{{ route('dashboard') }}" class="active">
-                                                <i class="fa fa-dashboard icon"> <b class="bg-danger"></b> </i>
-                                                <span class="pull-right">
-                                                    <i class="fa fa-angle-down text"></i> <i
-                                                        class="fa fa-angle-up text-active"></i> </span>
-                                                <span>Student Info</span> </a>
-                                            <ul class="nav lt">
-                                                <li class="active"> <a href="{{ Route('students') }}" class="active"> <i
-                                                            class="fa fa-angle-right"></i> <span><b>Students</b></span>
-                                                    </a> </li>
-                                                <li> <a href="dashboard.html"> <i class="fa fa-angle-right"></i>
-                                                        <span><b>Student DataTable</b></span> </a> </li>
-                                            </ul>
-                                        </li>
-
-
-                                        {{-- dashboard --}}
-
-                                        <li> <a href="{{route('signin')}}"> <i class="fa fa-flask icon"> <b class="bg-success"></b>
-                                                </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
-                                                    <i class="fa fa-angle-up text-active"></i> </span> <span>Sign
-                                                    In</span> </a>
-                                                    </li>
-
-                                        <li> <a href="{{route('signup')}}"> <i class="fa fa-flask icon"> <b class="bg-success"></b>
-                                                </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
-                                                    <i class="fa fa-angle-up text-active"></i> </span> <span>Sign 
-                                                    Up</span> </a>
-                                        </li>
-
-
-
-                </aside> <!-- /.aside -->
+                
                 <section id="content">
                     <section class="vbox">
                         <section class="scrollable padder">

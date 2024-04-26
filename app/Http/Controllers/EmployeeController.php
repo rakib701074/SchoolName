@@ -16,5 +16,8 @@ class EmployeeController extends Controller
     public function datatable(){
         return view('table');
     }
+    public function form(){
+        return view('form');
+    }
    
 }

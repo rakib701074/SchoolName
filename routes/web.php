@@ -52,3 +52,7 @@ Route::get('/profile', function(){
     return view('profile');
 });
 Route::get('/profile', [StudentsController::class,'studentprofile'])->name('profile');
+Route::get('/addStudent', [StudentsController::class,'addStudent'])->name('add-student');
+Route::post('/addStudent', [StudentsController::class,'updateStudent'])->name('add-student');
+
+
