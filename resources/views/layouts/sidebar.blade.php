@@ -41,8 +41,8 @@
                                             <li class="active"> <a href="{{ Route('students') }}" class="active"> <i
                                                         class="fa fa-angle-right"></i> <span><b>Students</b></span>
                                                 </a> </li>
-                                            <li> <a href="dashboard.html"> <i class="fa fa-angle-right"></i>
-                                                    <span><b>Student DataTable</b></span> </a> </li>
+                                            <li> <a href="{{url('/teachers')}}"> <i class="fa fa-angle-right"></i>
+                                                    <span><b>Teachers</b></span> </a> </li>
                                         </ul>
                                     </li>
 
@@ -106,10 +106,4 @@
 
                     </aside>
              <!-- /.aside -->
-           <style>
-            /* footer{
-                position: absolute;
-                top: 91%;
-                left: 60%;
-            } */
-            </style>
+           

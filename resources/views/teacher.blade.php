@@ -8,7 +8,7 @@
                             <div style="display: flex;justify-content:space-between">
                                 <header class="panel-heading"> Responsive Table </header>
                                 <span style="margin:10px">
-                                    <a href="{{ url('/addStudent') }}" class="btn btn-s-md btn-primary">Add Student</a>
+                                    <a href="{{url('/teacher')}}" class="btn btn-s-md btn-primary">Add Student</a>
                                 </span>
                             </div>
                             <div class="row wrapper">
@@ -43,47 +43,44 @@
                                                         class="fa fa-sort-up text-active"></i> <i
                                                         class="fa fa-sort"></i> </span> </th>
                                             <th>Name</th>
-                                            <th>email</th>
-                                            <th>City/State</th>
+                                            <th>age</th>
                                             <th>Action</th>
                                             <th width="30"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        @foreach($students as $student) 
+                                        @foreach($teacher as $teachers) 
                                         <tr>
-                                            <td><input type="checkbox" name="post[]" value="4"></td>
-                                            <td>{{ $student->student_id}}</td>
-                                            <td>{{ $student->name }}</td>
-                                            <td>{{ $student->email }}</td>
-                                            <td>{{ $student->city }}, {{ $student->state }} </td>
+                                            <td><input type="checkbox" name="post[]" value="3"></td>
+                                            <td>{{ $teachers->teacher_id}}</td>
+                                             <td>{{ $teachers->name }}</td>
+                                            <td>{{ $teachers->age }}</td> 
 
                                              <td>
-                                                <a href="">
-                                                <button  class="btn btn-info btn-sm" title="update"
+                                                <a href="{{route('student-view', ['id' => $teachers->teacher_id])}}">
+                                                <button  class="btn btn-info btn-sm" title="eye"
                                                 >
                                                 <i class="fa fa-eye"></i>
                                                 </button></a>
-                                              
-                                                <a href="{{route('student-edit', ['id' => $student->student_id])}}">
-                                            <button  class="btn btn-primary btn-sm" title="edit">
+
+                                                <a href="{{route('teacher-edit', ['id' => $teachers->teacher_id])}}">
+                                                <button  class="btn btn-primary btn-sm" title="edit">
                                                 <i class="fa fa-edit"></i>
-                                            </button></a>
-                                            
-                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}">
+                                             </button></a>
+
+                                            <a href="{{route('teacher-delete', ['id' => $teachers->teacher_id])}}">
                                             <button  class="btn btn-danger btn-sm" title="delete">
                                                 
                                                 <i class="fa fa-trash-o"></i>
                                             </button></a>
-                                              
                                              </td>
+                                             
                                         </tr>
                                         @endforeach 
                                     </tbody>
                                 </table>
                             </div>
-
-                            {{-- <footer class="panel-footer">
+                            <footer class="panel-footer">
                                 <div class="row">
                                     <div class="col-sm-4 hidden-xs"> <select
                                             class="input-sm form-control input-s-sm inline v-middle">
@@ -95,8 +92,7 @@
                                     <div class="col-sm-4 text-center"> <small
                                             class="text-muted inline m-t-sm m-b-sm">showing 20-30 of 50
                                             items</small> </div>
-                                   
-                                            <div class="col-sm-4 text-right text-center-xs">
+                                    <div class="col-sm-4 text-right text-center-xs">
                                         <ul class="pagination pagination-sm m-t-none m-b-none">
                                             <li><a href="#"><i class="fa fa-chevron-left"></i></a></li>
                                             <li><a href="#">1</a></li>
@@ -108,7 +104,7 @@
                                         </ul>
                                     </div>
                                 </div>
-                            </footer> --}}
+                            </footer>
                         </section>
 
                     </section> <a href="#" class="hide nav-off-screen-block"
