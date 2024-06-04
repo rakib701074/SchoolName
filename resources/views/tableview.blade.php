@@ -37,11 +37,7 @@
                                 <table class="table table-striped b-t b-light">
                                     <thead>
                                         <tr>
-                                            <th width="20"><input type="checkbox"></th>
-                                            <th class="th-sortable" data-toggle="class">ID <span
-                                                    class="th-sort"> <i class="fa fa-sort-down text"></i> <i
-                                                        class="fa fa-sort-up text-active"></i> <i
-                                                        class="fa fa-sort"></i> </span> </th>
+                                            
                                             <th>Name</th>
                                             <th>age</th>
                                             <th>Action</th>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Students;
+use PharIo\Manifest\Email;
 
 class StudentsController extends Controller
 {
@@ -29,19 +30,32 @@ class StudentsController extends Controller
     }
     // insert
     public function updateStudent(Request $request){
+
+
+       $request->validate([
+        'name' => 'required',
+        'email' => 'required|email|unique:students',
+       ]);
+      
         $students = new students;
         $students->name = $request['name'];
         $students->email = $request['email'];
-        $students->city = $request['city'];
         $students->state = $request['state'];
+        $students->address = $request['address'];
         $students->save();
         return redirect('/students');
     }
     // delete
-    public function delete($id){
-        $students = students::find($id);
-        $students->delete();
-        return redirect('/students');
+    public function delete(Request $request){
+        $students = students::find($request->input('id'));
+        if(!empty($students)){
+            $students->delete();
+            $data = [
+                'status'=>200,
+                'message'=>'Student Delete Successfully',
+            ];
+            echo json_encode($data);
+        }
     }
 
 
@@ -58,10 +72,25 @@ class StudentsController extends Controller
         $students = students::find($id);
         $students->name = $request['name'];
         $students->email = $request['email'];
-        $students->city = $request['city'];
         $students->state = $request['state'];
+        $students->address = $request['address'];
         $students->save();
         return redirect('/students');
+      }
+
+      public function search(Request $request)
+      {
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            // where
+            $students = students::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%search%")->get();
+
+        }else{
+            $students = students::all();
+        }
+        $students = students::all();
+        $data = compact('students','data');
+        return view ('table')->with($data);
       }
     
 
@@ -90,8 +119,10 @@ class StudentsController extends Controller
     //     return redirect('/students');
     //   }
 
+    }
 
 
 
 
-}
+
+
