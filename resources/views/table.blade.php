@@ -2,6 +2,27 @@
 @section('main-container')
 {{-- top --}}
 
+
+<div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete Student</h1>
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button> -->
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="delete_stud_id">
+        <h4>Are you sure ? want to delete this data ?</h4>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="submit" class="btn btn-danger delete_student_btn">Yes Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
                 <section id="content">
                     <section class="vbox">
                         <section class="panel panel-default">
@@ -21,12 +42,15 @@
                                     </select> 
                                     <button class="btn btn-sm btn-default">Apply</button> 
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="input-group"> <input type="text" class="input-sm form-control"
+                                <form action="">
+                                    <div class="col-sm-3">
+                                        <div class="input-group"> <input type="search" name="search" 
+                                        id=""    class="input-sm form-control"
                                             placeholder="Search"> <span class="input-group-btn"> <button
                                                 class="btn btn-sm btn-default" type="button">Go!</button> </span>
-                                    </div>
-                                </div>
+                                        </div>
+                                     </div>  
+                                </form>
                             </div>
 
                            
@@ -37,14 +61,17 @@
                                 <table class="table table-striped b-t b-light">
                                     <thead>
                                         <tr>
-                                            <th width="20"><input type="checkbox"></th>
+                                            <!-- <th width="20"><input type="checkbox"></th>
                                             <th class="th-sortable" data-toggle="class">ID <span
                                                     class="th-sort"> <i class="fa fa-sort-down text"></i> <i
                                                         class="fa fa-sort-up text-active"></i> <i
-                                                        class="fa fa-sort"></i> </span> </th>
+                                                        class="fa fa-sort"></i> </span> </th> -->
+                                                        <!-- <th><input type="checkbox" name="post[]" value="3"></th>  -->
+                                            <!-- <th>ID</th> -->
                                             <th>Name</th>
                                             <th>email</th>
-                                            <th>City/State</th>
+                                            <th>state</th>
+                                            <th>Address</th>
                                             <th>Action</th>
                                             <th width="30"></th>
                                         </tr>
@@ -52,12 +79,12 @@
                                     <tbody>
                                         @foreach($students as $student) 
                                         <tr>
-                                            <td><input type="checkbox" name="post[]" value="4"></td>
-                                            <td>{{ $student->student_id}}</td>
+                                        <!-- <td><input type="checkbox" name="post[]" value="3"></td>  -->
+                                            <!-- <td>{{ $student->student_id}}</td> -->
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->email }}</td>
-                                            <td>{{ $student->city }}, {{ $student->state }} </td>
-
+                                            <td>{{ $student->state }} </td>
+                                            <td>{{ $student->address }}</td>
                                              <td>
                                                 <a href="">
                                                 <button  class="btn btn-info btn-sm" title="update"
@@ -70,10 +97,9 @@
                                                 <i class="fa fa-edit"></i>
                                             </button></a>
                                             
-
-                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}" onclick="return myFunction();">
-                                            <button  class="btn btn-danger btn-sm" title="delete">
-                                                
+                                            <a href="#">
+                                            <button class="btn btn-danger btn-sm  deletebtn" 
+                                            title="delete" data-id="{{ $student->student_id }}">
                                                 <i class="fa fa-trash-o"></i>
                                             </button></a>
                                               
@@ -121,4 +147,29 @@
             </section>
         </section>
     </section> <!-- Bootstrap --> <!-- App -->
+    <script>
+        $(document).on('click', '.deletebtn', function(e){
+            e.preventDefault();
+            var dataID = $(this).attr('data-id');
+            $('#delete_stud_id').val(dataID);
+            $('#DeleteModal').modal('show');
+        });
+        $(document).on('click', '.delete_student_btn', function(e){
+            e.preventDefault();
+            data = {  
+                id : $('#delete_stud_id').val(),
+                "_token": "{{ csrf_token() }}",
+            }
+            url = "{{ url('student/delete/') }}";
+            customAjaxCall(url, data, responseFunction)
+            function responseFunction(res){
+                if(res.status == 200){
+                    window.location.reload();
+                }
+            }
+        });
+    </script>
 @endsection
+   
+
+

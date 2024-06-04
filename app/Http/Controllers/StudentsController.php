@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Students;
+use PharIo\Manifest\Email;
 
 class StudentsController extends Controller
 {
@@ -16,11 +17,20 @@ class StudentsController extends Controller
         // }
     }
 
-    public function studentslist(){
-           $students = students::all();
-           $data = compact('students');
+    public function studentslist(Request $request){
+           $search = $request['search'] ?? "";
+           if($search != ""){
+            $students = students::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%$search%")->get();
+            
+           }else{
+            $students = students::all();
+            
+           }
+           $data = compact('students','search');
         return view('table')->with($data);
     }
+
+
     public function studentprofile(){
         return view('profile');
     }
@@ -43,16 +53,22 @@ class StudentsController extends Controller
         $students = new students;
         $students->name = $request['name'];
         $students->email = $request['email'];
-        $students->city = $request['city'];
         $students->state = $request['state'];
+        $students->city = $request['city'];
         $students->save();
         return redirect('/students');
     }
     // delete
-    public function delete($id){
-        $students = students::find($id);
-        $students->delete();
-        return redirect('/students');
+    public function delete(Request $request){
+        $students = students::find($request->input('id'));
+        if(!empty($students)){
+            $students->delete();
+            $data = [
+                'status'=>200,
+                'message'=>'Student Delete Successfully',
+            ];
+            echo json_encode($data);
+        }
     }
 
 
@@ -69,10 +85,25 @@ class StudentsController extends Controller
         $students = students::find($id);
         $students->name = $request['name'];
         $students->email = $request['email'];
-        $students->city = $request['city'];
         $students->state = $request['state'];
+        $students->address = $request['address'];
         $students->save();
         return redirect('/students');
+      }
+
+      public function search(Request $request)
+      {
+        $search = $request['search'] ?? "";
+        if($search != ""){
+            // where
+            $students = students::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%search%")->get();
+
+        }else{
+            $students = students::all();
+        }
+        $students = students::all();
+        $data = compact('students','data');
+        return view ('table')->with($data);
       }
     
 
@@ -101,8 +132,10 @@ class StudentsController extends Controller
     //     return redirect('/students');
     //   }
 
+    }
 
 
 
 
-}
+
+
