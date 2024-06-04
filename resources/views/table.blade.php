@@ -42,38 +42,6 @@
                                     </select> 
                                     <button class="btn btn-sm btn-default">Apply</button> 
                                 </div>
-<<<<<<< HEAD
-
-                                <div class="col-sm-3">
-                                    <form action="">
-                                    <div class="input-group"> 
-                                        <input type="search" name="search" id="" class="input-sm form-control" placeholder="Search by name or email" value="{{$search}}">
-                                            <span class="input-group-btn"> 
-                                                <button class="btn btn-sm btn-default">Go!</button> 
-                                            </span>  
-                                    </div>
-                                    <a href="{{url('/students')}}">
-                                        <button class="btn btn-primary" type="button" style="margin:10px; justify-content:space-between;">Reset</button>
-                                    </a>
-                                </form>
-                                </div>
-
-                                 
-                                {{-- <form action="">
-                                    <div class="form-group">
-                                        <input type="search" name="search" id="" class="form-control" placeholder="Search by name or email" value="{{$search}}">
-                                    </div>
-                                    <button class="btn btn-primary">Search</button>
-                                      <a href="{{url('/students')}}">
-                                    <button class="btn btn-primary" type="button">Reset</button>
-                                </a>
-                                </form> --}}
-
-
-
-
-
-=======
                                 <form action="">
                                     <div class="col-sm-3">
                                         <div class="input-group"> <input type="search" name="search" 
@@ -83,7 +51,6 @@
                                         </div>
                                      </div>  
                                 </form>
->>>>>>> a4f6043 (bug resolve student and teacher)
                             </div>
 
                            
@@ -130,16 +97,9 @@
                                                 <i class="fa fa-edit"></i>
                                             </button></a>
                                             
-<<<<<<< HEAD
-
-                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}" onclick="confirmation(event);">
-                                            <button  class="btn btn-danger btn-sm" title="delete">
-                                                
-=======
                                             <a href="#">
                                             <button class="btn btn-danger btn-sm  deletebtn" 
                                             title="delete" data-id="{{ $student->student_id }}">
->>>>>>> a4f6043 (bug resolve student and teacher)
                                                 <i class="fa fa-trash-o"></i>
                                             </button></a>
                                               

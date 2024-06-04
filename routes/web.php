@@ -81,9 +81,4 @@ Route::get('/teacher', [TeacherController::class,'formList'])->name('add-teacher
 
 Route::POST('/teacher', [TeacherController::class,'teacherList'])->name('add-teachers');
 
-<<<<<<< HEAD
 require __DIR__.'/auth.php';
-=======
-
-
->>>>>>> a4f6043 (bug resolve student and teacher)

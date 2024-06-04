@@ -44,26 +44,17 @@ class StudentsController extends Controller
     // insert
     public function updateStudent(Request $request){
 
-<<<<<<< HEAD
         $request->validate([
             'name' => 'required|string',
             'email' => 'required|email|unique:users',
             
         ]);
     
-=======
-
-       $request->validate([
-        'name' => 'required',
-        'email' => 'required|email|unique:students',
-       ]);
-      
->>>>>>> a4f6043 (bug resolve student and teacher)
         $students = new students;
         $students->name = $request['name'];
         $students->email = $request['email'];
         $students->state = $request['state'];
-        $students->address = $request['address'];
+        $students->city = $request['city'];
         $students->save();
         return redirect('/students');
     }

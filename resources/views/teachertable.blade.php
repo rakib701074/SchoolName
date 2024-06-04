@@ -85,11 +85,8 @@
                                     </tbody>
                                 </table>
                             </div>
-<<<<<<< HEAD:resources/views/teachertable.blade.php
                             
                             
-=======
->>>>>>> a4f6043 (bug resolve student and teacher):resources/views/teacher.blade.php
                         </section>
 
                     </section> <a href="#" class="hide nav-off-screen-block"

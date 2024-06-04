@@ -22,7 +22,6 @@ class TeacherController extends Controller
     }
 
 
-<<<<<<< HEAD
     public function teacherList(request $request){
       $request->validate([
         'name' => 'required|string',
@@ -30,14 +29,6 @@ class TeacherController extends Controller
         'address' => 'required',
         
        ]);
-=======
-    public function teacherList(Request $request){
-      $request->validate([
-        'name' => 'required',
-        'number' => 'required',
-        'age' => 'required',
-      ]);
->>>>>>> a4f6043 (bug resolve student and teacher)
 
         $teacher = new teacher;
         $teacher->name = $request['name'];
@@ -50,14 +41,12 @@ class TeacherController extends Controller
 
     // delete
     public function delete(Request $request){
-      $teacher = teacher::find($teacher->input(){
-        
-      });
+      $teacher = teacher::find($teacher->input('in'));
 
             // echo "<pre>";
         // print_r($teacher->toArray());
       
-        }
+        // }
         // return redirect('/teachers');
       
     
