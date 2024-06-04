@@ -21,12 +21,36 @@
                                     </select> 
                                     <button class="btn btn-sm btn-default">Apply</button> 
                                 </div>
+
                                 <div class="col-sm-3">
-                                    <div class="input-group"> <input type="text" class="input-sm form-control"
-                                            placeholder="Search"> <span class="input-group-btn"> <button
-                                                class="btn btn-sm btn-default" type="button">Go!</button> </span>
+                                    <form action="">
+                                    <div class="input-group"> 
+                                        <input type="search" name="search" id="" class="input-sm form-control" placeholder="Search by name or email" value="{{$search}}">
+                                            <span class="input-group-btn"> 
+                                                <button class="btn btn-sm btn-default">Go!</button> 
+                                            </span>  
                                     </div>
+                                    <a href="{{url('/students')}}">
+                                        <button class="btn btn-primary" type="button" style="margin:10px; justify-content:space-between;">Reset</button>
+                                    </a>
+                                </form>
                                 </div>
+
+                                 
+                                {{-- <form action="">
+                                    <div class="form-group">
+                                        <input type="search" name="search" id="" class="form-control" placeholder="Search by name or email" value="{{$search}}">
+                                    </div>
+                                    <button class="btn btn-primary">Search</button>
+                                      <a href="{{url('/students')}}">
+                                    <button class="btn btn-primary" type="button">Reset</button>
+                                </a>
+                                </form> --}}
+
+
+
+
+
                             </div>
 
                            
@@ -71,7 +95,7 @@
                                             </button></a>
                                             
 
-                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}" onclick="return myFunction();">
+                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}" onclick="confirmation(event);">
                                             <button  class="btn btn-danger btn-sm" title="delete">
                                                 
                                                 <i class="fa fa-trash-o"></i>

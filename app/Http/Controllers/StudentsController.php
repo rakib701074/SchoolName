@@ -16,11 +16,20 @@ class StudentsController extends Controller
         // }
     }
 
-    public function studentslist(){
-           $students = students::all();
-           $data = compact('students');
+    public function studentslist(Request $request){
+           $search = $request['search'] ?? "";
+           if($search != ""){
+            $students = students::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%$search%")->get();
+            
+           }else{
+            $students = students::all();
+            
+           }
+           $data = compact('students','search');
         return view('table')->with($data);
     }
+
+
     public function studentprofile(){
         return view('profile');
     }

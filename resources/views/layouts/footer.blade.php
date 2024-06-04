@@ -1,7 +1,23 @@
 <script>
-    function myFunction() {
-        if(!confirm("Are You Sure to delete this"))
+    function confirmation(ev) {
+        // if(!confirm("Are You Sure to delete this"))
         event.preventDefault();
+        var urlToRedirect=ev.currentTarget.getAttribute('href');
+         
+        console.log(urlToRedirect);
+        swal({
+            title :"Are U Sure Delete This ?",
+            text : "You won't be able to revert this delete ",
+            icon : "warning",
+            buttons : true,
+            dangerMode : true,
+
+        })
+        .then((willCancel)=>{
+            if(willCancel){
+                window.location.href=urlToRedirect;
+            }
+        })
     }
    </script>
 
@@ -15,6 +31,7 @@
     <script src="{{url('frontend/js/charts/flot/demo.js')}}"></script>
     <script src="{{url('frontend/js/calendar/bootstrap_calendar.js')}}"></script>
     <script src="{{url('frontend/js/calendar/demo.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha512-AA1Bzp5Q0K1KanKKmvN/4d3IRKVlv9PYgwFPvm32nPO6QS8yH1HO7LbgB1pgiOxPtfeg5zEn2ba64MUcqJx6CA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="{{url('frontend/js/sortable/jquery.sortable.js')}}"></script>
     <script src="{{url('frontend/js/app.plugin.js')}}"></script>
 </body>

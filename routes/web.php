@@ -34,7 +34,7 @@ Route::get('/log', [EmployeeController::class,'login'])->name('log');
 Route::get('/student', function(){
     return view('table');
 });
-// Route::get('/students', [StudentsController::class,'studentslist'])->name('students');
+Route::get('/students', [StudentsController::class,'studentslist'])->name('students');
 
 
 Route::get('/profile', function(){
