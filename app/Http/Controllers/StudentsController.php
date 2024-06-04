@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Students;
 
@@ -9,7 +9,11 @@ class StudentsController extends Controller
 {
     
     public function index(){
+        // if(Auth::check()){
         return view('index');
+        // }else{
+            // return redirect()->route('signup');
+        // }
     }
 
     public function studentslist(){
@@ -29,6 +33,13 @@ class StudentsController extends Controller
     }
     // insert
     public function updateStudent(Request $request){
+
+        $request->validate([
+            'name' => 'required|string',
+            'email' => 'required|email|unique:users',
+            
+        ]);
+    
         $students = new students;
         $students->name = $request['name'];
         $students->email = $request['email'];

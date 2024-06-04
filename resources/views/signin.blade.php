@@ -17,22 +17,50 @@
         <div class="container aside-xxl"> <a class="navbar-brand block" href="index.html">Notebook</a>
             <section class="panel panel-default bg-white m-t-lg">
                 <header class="panel-heading text-center"> <strong>Sign in</strong> </header>
-                <form action="{{url('dashboard')}}" class="panel-body wrapper-lg">
-                    <div class="form-group"> <label class="control-label">Email</label> <input type="email"
-                            placeholder="test@example.com" class="form-control input-lg"> </div>
-                    <div class="form-group"> <label class="control-label">Password</label> <input type="password"
-                            id="inputPassword" placeholder="Password" class="form-control input-lg"> </div>
+                
+                <form action="" class="panel-body wrapper-lg" method="post">
+                    @csrf
+                    <div class="form-group">
+                         <label class="control-label">Email</label> <input type="email"
+                            placeholder="test@example.com" class="form-control input-lg"> 
+                            <span class="text-danger">
+                                @if (Session('msg'))
+                                <strong>{{Session('msg')}}</strong>
+
+                                @endif
+                            </span>
+                        </div>
+                    <div class="form-group"> 
+                        <label class="control-label">Password</label> <input type="password"
+                            id="inputPassword" placeholder="Password" class="form-control input-lg">
+
+                            <span class="text-danger">
+                                @if (Session('msg'))
+                                <strong>{{Session('msg')}}</strong>
+
+                                @endif
+                            </span>
+                         </div>
                     <div class="checkbox"> <label> <input type="checkbox"> Keep me logged in </label> </div> <a href="#"
-                        class="pull-right m-t-xs"><small>Forgot password?</small></a> <button type="submit"
+                        class="pull-right m-t-xs"><small>Forgot password?</small></a> 
+                        <button type="submit"
                         class="btn btn-primary">Sign in</button>
                     <div class="line line-dashed"></div> <a href="#" class="btn btn-facebook btn-block m-b-sm"><i
                             class="fa fa-facebook pull-left"></i>Sign in with Facebook</a> <a href="#"
                         class="btn btn-twitter btn-block"><i class="fa fa-twitter pull-left"></i>Sign in with
                         Twitter</a>
                     <div class="line line-dashed"></div>
-                    <p class="text-muted text-center"><small>Do not have an account?</small></p> <a href="{{route('signup')}}"
+                    <p class="text-muted text-center"><small>Do not have an account?</small></p> <a href="{{url('/signup')}}"
                         class="btn btn-default btn-block">Create an account</a>
                 </form>
+                 <br>
+
+                {{-- @if (Session('msg'))
+                {{-- <div class="alert alert-danger"> --}}
+                    {{-- <strong>{{Session('msg')}}</strong> --}}
+                {{-- </div> --}}
+                {{-- @endif --}} -
+
             </section>
         </div>
     </section> <!-- footer -->

@@ -9,21 +9,29 @@ class TeacherController extends Controller
     public function tableList(){
         $teacher = teacher::all();
            $data = compact('teacher');
-        return view('/teacher')->with($data);
+        return view('teachertable')->with($data);
     }
 // create
     public function formList(){
       $url = url('/teacher');
       $title = "Create form";
       $data = compact('url', 'title');
-        return view('dataTable')->with($data);
+        return view('teacherform')->with($data);
     }
 
 
     public function teacherList(request $request){
+      $request->validate([
+        'name' => 'required|string',
+        'age' => 'required',
+        'address' => 'required',
+        
+       ]);
+
         $teacher = new teacher;
         $teacher->name = $request['name'];
         $teacher->age = $request['age'];
+        $teacher->address = $request['address'];
         $teacher->save();
         return redirect('/teachers');
     }
@@ -62,6 +70,7 @@ class TeacherController extends Controller
         $teacher = teacher::find($id);
         $teacher->name = $request['name'];
         $teacher->age = $request['age'];
+        $teacher->address = $request['address'];
         $teacher->save();
         return redirect('/teachers');
       }
@@ -81,6 +90,7 @@ class TeacherController extends Controller
         $teacher = teacher::find($id);
         $teacher->name = $request['name'];
         $teacher->age = $request['age'];
+        $teacher->address = $request['address'];
         $teacher->save();
         return redirect('/teachers');
       }

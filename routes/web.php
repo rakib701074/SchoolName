@@ -1,19 +1,29 @@
 <?php
 
-
-
-
-
+use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EmployeeController;
 use App\Http\Controllers\StudentsController;
-use App\Http\Controllers\SigninController;
-use App\Http\Controllers\SignupController;
 use App\Http\Controllers\TeacherController;
 
 
 
-Route::get('/', [StudentsController::class,'index']);
+
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
+
+Route::middleware('auth')->group(function () {
+    Route::get('/', function () {  return view('welcome');});
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+    Route::get('/students', [StudentsController::class,'studentslist'])->name('students');
+});
+
+
+
+// Route::get('/', [StudentsController::class,'index']);
 Route::get('/dashboard', [EmployeeController::class,'index'])->name('dashboard');
 
 Route::get('/rakib', function(){
@@ -24,17 +34,7 @@ Route::get('/log', [EmployeeController::class,'login'])->name('log');
 Route::get('/student', function(){
     return view('table');
 });
-Route::get('/students', [StudentsController::class,'studentslist'])->name('students');
-
-Route::get('/signin', function(){
-    return view('signin');
-});
-Route::get('/signin', [SigninController::class,'Studentsignin'])->name('signin');
-
-Route::get('/signup', function(){
-    return view('signup');
-});
-Route::get('/signup', [SignupController::class,'Studentsignup'])->name('signup');
+// Route::get('/students', [StudentsController::class,'studentslist'])->name('students');
 
 
 Route::get('/profile', function(){
@@ -75,11 +75,8 @@ Route::get('/teacher/edit/{id}', [TeacherController::class,'edit'])->name('teach
 Route::post('/teacher/update/{id}', [TeacherController::class,'update'])->name('teacher-update');
 
 
-Route::get('/teacher' ,function(){
-    return view('dataTable');
-});
 Route::get('/teacher', [TeacherController::class,'formList'])->name('add-teachers');
 
 Route::POST('/teacher', [TeacherController::class,'teacherList'])->name('add-teachers');
-// end teachers......
 
+require __DIR__.'/auth.php';
