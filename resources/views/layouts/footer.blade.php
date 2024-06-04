@@ -1,31 +1,3 @@
-<<<<<<< HEAD
-<script>
-    function confirmation(ev) {
-        // if(!confirm("Are You Sure to delete this"))
-        event.preventDefault();
-        var urlToRedirect=ev.currentTarget.getAttribute('href');
-         
-        console.log(urlToRedirect);
-        swal({
-            title :"Are U Sure Delete This ?",
-            text : "You won't be able to revert this delete ",
-            icon : "warning",
-            buttons : true,
-            dangerMode : true,
-
-        })
-        .then((willCancel)=>{
-            if(willCancel){
-                window.location.href=urlToRedirect;
-            }
-        })
-    }
-   </script>
-=======
-
-
-
->>>>>>> a4f6043 (bug resolve student and teacher)
 
 <script src="{{url('frontend/js/app.v1.js')}}"></script>
     <script src="{{url('frontend/js/charts/easypiechart/jquery.easy-pie-chart.js')}}"></script>
