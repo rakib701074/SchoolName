@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="{{ url('frontend/js/calendar/bootstrap_calendar.css') }}" type="text/css" />
     <link rel="stylesheet" href="{{ url('frontend/css/app.v1.css') }}" type="text/css" />
     <!--[if lt IE 9]> <script src="js/ie/html5shiv.js"></script> <script src="js/ie/respond.min.js"></script> <script src="js/ie/excanvas.js"></script> <![endif]-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 
 <body class="">

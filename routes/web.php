@@ -43,7 +43,7 @@ Route::get('/profile', function(){
 Route::get('/profile', [StudentsController::class,'studentprofile'])->name('profile');
 
 // student
-Route::get('/student/delete/{id}' , [StudentsController::class,'delete'])->name('student-delete');
+Route::post('/student/delete' , [StudentsController::class,'delete'])->name('student-delete');
 
 Route::get('/student/edit/{id}', [StudentsController::class,'edit'])->name('student-edit');
 Route::post('/student/update/{id}', [StudentsController::class,'update'])->name('student-update');
@@ -51,6 +51,8 @@ Route::post('/student/update/{id}', [StudentsController::class,'update'])->name(
 
 Route::get('/addStudent', [StudentsController::class,'addStudent'])->name('add-student');
 Route::post('/addStudent', [StudentsController::class,'updateStudent'])->name('add-student');
+
+Route::get('/student',[StudentsController::class, 'search']);
 
 
 
@@ -62,7 +64,7 @@ Route::get('/teacher' ,function(){
 });
 Route::get('/teachers', [TeacherController::class,'tableList'])->name('teachers_');
 
-Route::get('/teacher/delete/{id}', [TeacherController::class,'delete'])->name('teacher-delete');
+Route::get('/teacher/delete', [TeacherController::class,'delete'])->name('teacher-delete');
 
 
 
@@ -79,4 +81,9 @@ Route::get('/teacher', [TeacherController::class,'formList'])->name('add-teacher
 
 Route::POST('/teacher', [TeacherController::class,'teacherList'])->name('add-teachers');
 
+<<<<<<< HEAD
 require __DIR__.'/auth.php';
+=======
+
+
+>>>>>>> a4f6043 (bug resolve student and teacher)

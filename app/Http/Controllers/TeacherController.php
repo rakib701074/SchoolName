@@ -12,7 +12,9 @@ class TeacherController extends Controller
         return view('teachertable')->with($data);
     }
 // create
-    public function formList(){
+    public function formList(Request $request){
+    
+
       $url = url('/teacher');
       $title = "Create form";
       $data = compact('url', 'title');
@@ -20,6 +22,7 @@ class TeacherController extends Controller
     }
 
 
+<<<<<<< HEAD
     public function teacherList(request $request){
       $request->validate([
         'name' => 'required|string',
@@ -27,9 +30,18 @@ class TeacherController extends Controller
         'address' => 'required',
         
        ]);
+=======
+    public function teacherList(Request $request){
+      $request->validate([
+        'name' => 'required',
+        'number' => 'required',
+        'age' => 'required',
+      ]);
+>>>>>>> a4f6043 (bug resolve student and teacher)
 
         $teacher = new teacher;
         $teacher->name = $request['name'];
+        $teacher->number = $request['number'];
         $teacher->age = $request['age'];
         $teacher->address = $request['address'];
         $teacher->save();
@@ -37,16 +49,16 @@ class TeacherController extends Controller
     }
 
     // delete
-    public function delete($id){
-      $teacher  = teacher::find($id);
-        if(!is_null($teacher)){
-          $teacher->delete();
+    public function delete(Request $request){
+      $teacher = teacher::find($teacher->input(){
+        
+      });
 
             // echo "<pre>";
         // print_r($teacher->toArray());
       
         }
-        return redirect('/teachers');
+        // return redirect('/teachers');
       
     
       }
@@ -69,6 +81,7 @@ class TeacherController extends Controller
       public function update($id, Request $request){
         $teacher = teacher::find($id);
         $teacher->name = $request['name'];
+        $teacher->number = $request['number'];
         $teacher->age = $request['age'];
         $teacher->address = $request['address'];
         $teacher->save();
@@ -89,6 +102,7 @@ class TeacherController extends Controller
       public function viewUpdate($id, Request $request){
         $teacher = teacher::find($id);
         $teacher->name = $request['name'];
+        $teacher->number = $request['number'];
         $teacher->age = $request['age'];
         $teacher->address = $request['address'];
         $teacher->save();

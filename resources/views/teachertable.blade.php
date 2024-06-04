@@ -2,6 +2,10 @@
 @section('main-container')
 {{-- top --}}
 
+
+
+
+
                 <section id="content">
                     <section class="vbox">
                         <section class="panel panel-default">
@@ -37,12 +41,10 @@
                                 <table class="table table-striped b-t b-light">
                                     <thead>
                                         <tr>
-                                            <th width="20"><input type="checkbox"></th>
-                                            <th class="th-sortable" data-toggle="class">ID <span
-                                                    class="th-sort"> <i class="fa fa-sort-down text"></i> <i
-                                                        class="fa fa-sort-up text-active"></i> <i
-                                                        class="fa fa-sort"></i> </span> </th>
+                                            <!-- <th><input type="checkbox" name="post[]" value="3"></th> -->
+                                            <!-- <th>ID</th> -->
                                             <th>Name</th>
+                                            <th>Number</th>
                                             <th>age</th>
                                             <th>Address</th>
                                             <th>Action</th>
@@ -52,9 +54,10 @@
                                     <tbody>
                                         @foreach($teacher as $teachers) 
                                         <tr>
-                                            <td><input type="checkbox" name="post[]" value="3"></td>
-                                            <td>{{ $teachers->teacher_id}}</td>
+                                            <!-- <td><input type="checkbox" name="post[]" value="3"></td> -->
+                                            <!-- <td>{{ $teachers->teacher_id}}</td> -->
                                              <td>{{ $teachers->name }}</td>
+                                             <td>{{ $teachers->number}}</td>
                                             <td>{{ $teachers->age }}</td> 
                                             <td>{{ $teachers->address }}</td> 
 
@@ -70,8 +73,8 @@
                                                 <i class="fa fa-edit"></i>
                                              </button></a>
 
-                                            <a href="{{route('teacher-delete', ['id' => $teachers->teacher_id])}}">
-                                            <button  class="btn btn-danger btn-sm" title="delete">
+                                            <a href="#">
+                                            <button  class="btn btn-danger btn-sm " title="delete">
                                                 
                                                 <i class="fa fa-trash-o"></i>
                                             </button></a>
@@ -82,8 +85,11 @@
                                     </tbody>
                                 </table>
                             </div>
+<<<<<<< HEAD:resources/views/teachertable.blade.php
                             
                             
+=======
+>>>>>>> a4f6043 (bug resolve student and teacher):resources/views/teacher.blade.php
                         </section>
 
                     </section> <a href="#" class="hide nav-off-screen-block"
@@ -95,4 +101,6 @@
             </section>
         </section>
     </section> <!-- Bootstrap --> <!-- App -->
+
+   
 @endsection
