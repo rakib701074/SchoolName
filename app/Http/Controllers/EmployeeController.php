@@ -10,9 +10,7 @@ class EmployeeController extends Controller
         return view('index');
     }
     
-    public function login(){
-        return view('log');
-    }
+ //login
     public function datatable(){
         return view('table');
     }

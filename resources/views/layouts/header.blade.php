@@ -67,8 +67,20 @@
                     <li> <a href="{{url('profile')}}">Profile</a> </li>
 
                     <li class="divider"></li>
-                    <li> <a href="{{ route('log') }}" data-toggle="ajaxModal">Logout</a> </li>
+                    <li> <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+
+                    <x-responsive-nav-link :href="route('logout')"
+                            onclick="event.preventDefault();
+                                        this.closest('form').submit();">
+                        {{ __('Log Out') }}
+                    </x-responsive-nav-link>
+                </form> </li>
                 </ul>
             </li>
         </ul>
     </header>
+
+
+
+

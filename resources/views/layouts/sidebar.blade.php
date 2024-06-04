@@ -49,18 +49,18 @@
 
                                     {{-- dashboard --}}
 
-                                    <li> <a href="{{ route('signin') }}"> <i class="fa fa-flask icon"> <b
+                                    <li> <a href=""> <i class="fa fa-flask icon"> <b
                                                     class="bg-success"></b>
                                             </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
-                                                <i class="fa fa-angle-up text-active"></i> </span> <span>Sign
-                                                In</span> </a>
+                                                <i class="fa fa-angle-up text-active"></i> </span> <span>Back Office
+                                                </span> </a>
                                     </li>
 
-                                    <li> <a href="{{ route('signup') }}"> <i class="fa fa-flask icon"> <b
+                                    <li> <a href=""> <i class="fa fa-flask icon"> <b
                                                     class="bg-success"></b>
                                             </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
-                                                <i class="fa fa-angle-up text-active"></i> </span> <span>Sign
-                                                Up</span> </a>
+                                                <i class="fa fa-angle-up text-active"></i> </span> <span>Back Office
+                                                </span> </a>
                                     </li>
 
 

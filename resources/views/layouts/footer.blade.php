@@ -1,3 +1,10 @@
+<script>
+    function myFunction() {
+        if(!confirm("Are You Sure to delete this"))
+        event.preventDefault();
+    }
+   </script>
+
 <script src="{{url('frontend/js/app.v1.js')}}"></script>
     <script src="{{url('frontend/js/charts/easypiechart/jquery.easy-pie-chart.js')}}"></script>
     <script src="{{url('frontend/js/charts/sparkline/jquery.sparkline.min.js')}}"></script>

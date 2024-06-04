@@ -70,7 +70,8 @@
                                                 <i class="fa fa-edit"></i>
                                             </button></a>
                                             
-                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}">
+
+                                            <a href="{{route('student-delete', ['id' => $student->student_id])}}" onclick="return myFunction();">
                                             <button  class="btn btn-danger btn-sm" title="delete">
                                                 
                                                 <i class="fa fa-trash-o"></i>

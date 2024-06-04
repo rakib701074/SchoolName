@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id('student_id');
             $table->string('name');
             $table->string('email');
-            $table->bigInteger('city');
+            $table->string('city');
             $table->string('state');
             $table->timestamps();
         });

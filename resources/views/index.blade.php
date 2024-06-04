@@ -19,7 +19,7 @@
                                                 class="fa fa-circle fa-stack-2x text-info"></i> <i
                                                 class="fa fa-male fa-stack-1x text-white"></i> </span> <a class="clear"
                                             href="#"> <span class="h3 block m-t-xs"><strong>52,000</strong></span>
-                                            <small class="text-muted text-uc">New robots</small> </a> </div>
+                                            <small class="text-muted text-uc">Students</small> </a> </div>
                                     <div class="col-sm-6 col-md-3 padder-v b-r b-light lt"> <span
                                             class="fa-stack fa-2x pull-left m-r-sm"> <i
                                                 class="fa fa-circle fa-stack-2x text-warning"></i> <i
@@ -49,7 +49,7 @@
                                                 class="text-muted text-uc">Left to exit</small> </a> </div>
                                 </div>
                             </section>
-                            <div class="row">
+                            {{-- <div class="row">
                                 <div class="col-md-8">
                                     <section class="panel panel-default">
                                         <header class="panel-heading font-bold">Statistics</header>
@@ -259,5 +259,5 @@
                 </aside>
             </section>
         </section>
-    </section> <!-- Bootstrap --> <!-- App -->
+    </section> <!-- Bootstrap --> <!-- App --> --}}
 @endsection
