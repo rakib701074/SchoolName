@@ -14341,4 +14341,8 @@ fieldset[disabled] .btn-gplus.active {
         padding: 15px;
     }
 }
-
+.mainFooter{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
