@@ -15,16 +15,16 @@
 
 <body class="">
     <section id="content" class="m-t-lg wrapper-md animated fadeInUp">
-        <div class="container aside-xxl"> <a class="navbar-brand block" href="index.html">Notebook</a>
+        <div class="container aside-xxl"> <a class="navbar-brand block"></a>
             <section class="panel panel-default bg-white m-t-lg">
-                <header class="panel-heading text-center"> <strong>Sign in</strong> </header>
+                <header class="panel-heading text-center"> <strong>LOGIN</strong> </header>
                 
                 <form action="{{route('login')}}" class="panel-body wrapper-lg" method="post">
                     @csrf
                     <div class="form-group">
                          <label class="control-label">Email</label>
                         <input type="email" name="email"
-                            placeholder="test@example.com" class="form-control input-lg"> 
+                            placeholder="Enter Your Email" class="form-control input-lg"> 
                             
                             <x-input-error :messages="$errors->get('email')" class="mt-2" />
                         </div>
@@ -35,40 +35,35 @@
                              
                             <x-input-error :messages="$errors->get('password')" class="mt-2" />
                          </div>
-                    <div class="checkbox"> <label> <input type="checkbox">
-                        <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-                    </label> 
+                    <div>
+                         {{-- <label>  --}}
+                        {{-- <input type="checkbox">
+                        <span class="ms-2 text-sm text-gray-600 text-center">{{ __('Remember me') }}</span> --}}
+                    {{-- </label>  --}}
                 </div>
-
+                
                 @if (Route::has('password.request'))
                      <a  href="{{ route('password.request') }}"
-                        class="pull-right m-t-xs">
+                        class="pull-left m-t-xs text-bold">
                         <small>
                           
-                            Forgot password?
+                            Forgot password ?
 
                         </small>
                     </a> 
                         @endif
-                        
+
+                        <div class="pull-right">
                         <button type="submit"
-                        class="btn btn-primary">Sign in</button>
-                    <div class="line line-dashed"></div> 
-                    <a href="#" class="btn btn-facebook btn-block m-b-sm"><i
-                            class="fa fa-facebook pull-left"></i>Sign in with Facebook</a> <a href="#"
-                        class="btn btn-twitter btn-block"><i class="fa fa-twitter pull-left"></i>Sign in with
-                        Twitter</a>
+                         class="btn btn-primary">Sign in</button>
+                        </div><br><br>
                     <div class="line line-dashed"></div>
-                    <p class="text-muted text-center"><small>Do not have an account?</small></p> <a href="{{url('/signup')}}"
+                    {{-- <p class="text-muted text-center"><small>Do not have an account?</small></p> --}}
+                     <a href="{{url('/register')}}"
                         class="btn btn-default btn-block">Create an account</a>
                 </form>
                  <br>
 
-                {{-- @if (Session('msg'))
-                {{-- <div class="alert alert-danger"> --}}
-                    {{-- <strong>{{Session('msg')}}</strong> --}}
-                {{-- </div> --}}
-                {{-- @endif --}} -
 
             </section>
         </div>

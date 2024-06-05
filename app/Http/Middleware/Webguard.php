@@ -15,17 +15,17 @@ class Webguard
      *
      * @param  \Closure(\Illuminate\Http\Request): (\Symfony\Component\HttpFoundation\Response)  $next
      */
-    public function handle(Request $request, Closure $next,string $role): Response
+    public function handle(Request $request, Closure $next): Response
     {    
       
-      if(Auth::user()->role == $role){
-        return $next($request);
-      }elseif(Auth::user()->role == "reader"){
-        return redirect()->route('register');
-      }else{
-        return redirect()->route('login');
-      }
-    } 
+    //   if(Auth::user()->role == $role){
+    //     return $next($request);
+    //   }elseif(Auth::user()->role == "reader"){
+    //     return redirect()->route('register');
+    //   }else{
+    //     return redirect()->route('login');
+    //   }
+    
 
 
 
@@ -34,15 +34,7 @@ class Webguard
 
 
 
-    }
-
-      //    if(Auth::check()){  
-      //     return $next($request);
-      // //   // return redirect('/');
-      // }else{
-      //   return redirect('signup')->with('msg','Please Login First');
-
-      // }
+    
 
 
 
@@ -50,21 +42,6 @@ class Webguard
 
 
 
-
-
-
-
-
-
-
-
-
-
-        // if(Auth::user()->role == $role){
-        //   return $next($request);
-
-        // }elseif(Auth::user()->role == "re")
-            
 
           // if(auth()->check()){
           //  
@@ -80,11 +57,11 @@ class Webguard
           // }
     // }
 
-          //   if(Auth::check() && Auth::user()->role == $role){
-          //     return $next($request);
-          //   }else{
-          //     return redirect()->route('login');
-          //   }
-          // } 
-        
-// }
+            if(Auth::check() ){
+              return $next($request);
+            }else{
+              return redirect()->route('login');
+            }
+          } 
+}
+

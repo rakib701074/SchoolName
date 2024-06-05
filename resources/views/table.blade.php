@@ -2,7 +2,7 @@
 @section('main-container')
 {{-- top --}}
 
-
+{{-- 
 <div class="modal fade" id="DeleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -20,7 +20,8 @@
       </div>
     </div>
   </div>
-</div>
+</div> --}}
+
 
 
                 <section id="content">
@@ -42,15 +43,20 @@
                                     </select> 
                                     <button class="btn btn-sm btn-default">Apply</button> 
                                 </div>
-                                <form action="">
                                     <div class="col-sm-3">
-                                        <div class="input-group"> <input type="search" name="search" 
+                                        <form action="">
+                                        <div class="input-group">
+                                             <input type="search" name="search" 
                                         id=""    class="input-sm form-control"
-                                            placeholder="Search"> <span class="input-group-btn"> <button
-                                                class="btn btn-sm btn-default" type="button">Go!</button> </span>
+                                            placeholder="Search by name or email" value="{{$search}}"> 
+                                            <span class="input-group-btn"> 
+                                                <button
+                                                         class="btn btn-sm btn-default">Go!</button>
+                                             </span>
                                         </div>
+                                    </form>
                                      </div>  
-                                </form>
+                               
                             </div>
 
                            
@@ -84,22 +90,20 @@
                                             <td>{{ $student->name }}</td>
                                             <td>{{ $student->email }}</td>
                                             <td>{{ $student->state }} </td>
-                                            <td>{{ $student->address }}</td>
+                                            <td>{{ $student->city }}</td>
                                              <td>
                                                 <a href="">
                                                 <button  class="btn btn-info btn-sm" title="update"
                                                 >
                                                 <i class="fa fa-eye"></i>
                                                 </button></a>
-                                              
                                                 <a href="{{route('student-edit', ['id' => $student->student_id])}}">
                                             <button  class="btn btn-primary btn-sm" title="edit">
                                                 <i class="fa fa-edit"></i>
                                             </button></a>
-                                            
-                                            <a href="#">
-                                            <button class="btn btn-danger btn-sm  deletebtn" 
-                                            title="delete" data-id="{{ $student->student_id }}">
+                                            <a href="{{url('/student/delete')}}/{{$student->student_id}}">
+                                            <button class="btn btn-danger btn-sm" 
+                                            title="delete" data-id="">
                                                 <i class="fa fa-trash-o"></i>
                                             </button></a>
                                               

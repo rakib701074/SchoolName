@@ -10,11 +10,7 @@ class StudentsController extends Controller
 {
     
     public function index(){
-        // if(Auth::check()){
         return view('index');
-        // }else{
-            // return redirect()->route('signup');
-        // }
     }
 
     public function studentslist(Request $request){
@@ -59,17 +55,32 @@ class StudentsController extends Controller
         return redirect('/students');
     }
     // delete
-    public function delete(Request $request){
-        $students = students::find($request->input('id'));
-        if(!empty($students)){
-            $students->delete();
-            $data = [
-                'status'=>200,
-                'message'=>'Student Delete Successfully',
-            ];
-            echo json_encode($data);
-        }
-    }
+    public function delete($id){
+          $students = students::find($id);
+        //   echo "<pre>";
+        //   print_r($students);die;
+          if (!is_null($students)) {
+              $students->delete();
+          }
+          return redirect('/students');
+      }
+
+          
+
+
+
+
+
+        // $students = students::find($request->input('id'));
+        // if(!empty($students)){
+        //     $students->delete();
+        //     $data = [
+        //         'status'=>200,
+        //         'message'=>'Student Delete Successfully',
+        //     ];
+        //     echo json_encode($data);
+        // }
+    // }
 
 
     // edit....................................
@@ -91,20 +102,20 @@ class StudentsController extends Controller
         return redirect('/students');
       }
 
-      public function search(Request $request)
-      {
-        $search = $request['search'] ?? "";
-        if($search != ""){
-            // where
-            $students = students::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%search%")->get();
+    //   public function search(Request $request)
+    //   {
+    //     $search = $request['search'] ?? "";
+    //     if($search != ""){
+    //         // where
+    //         $students = students::where('name','LIKE',"%$search%")->orWhere('email','LIKE',"%search%")->get();
 
-        }else{
-            $students = students::all();
-        }
-        $students = students::all();
-        $data = compact('students','data');
-        return view ('table')->with($data);
-      }
+    //     }else{
+    //         $students = students::all();
+    //     }
+    //     $students = students::all();
+    //     $data = compact('students','data');
+    //     return view ('table')->with($data);
+    //   }
     
 
 
