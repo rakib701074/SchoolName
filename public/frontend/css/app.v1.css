@@ -14352,5 +14352,8 @@ a{
     position: absolute;
     left: 20%;
   }
+.mainFooter{
+    width: 100%;
+    position: absolute;
+    bottom: 0;
 }
-
