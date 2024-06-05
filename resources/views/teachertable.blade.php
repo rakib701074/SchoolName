@@ -1,8 +1,26 @@
 @extends('layouts.main')
 @section('main-container')
 {{-- top --}}
+         <script>
+            function confirmation(ev){
+                ev.preventDefault();
+                var urlToRedirect = ev.currentTarget.getAttribute('href');
 
-
+                console.log(urlToRedirect);
+                swal({
+                    title: "Are You Sure To Delete This",
+                    text: "You wont be able to revert this delete",
+                    icon: "warning",
+                    buttons : true,
+                    dangerMode: true,
+                })
+                .then((willCancel)=>{
+                    if(willCancel){
+                        window.location.href= urlToRedirect;
+                    }
+                })
+            }
+         </script>
 
 
 
@@ -44,7 +62,6 @@
                                             <!-- <th><input type="checkbox" name="post[]" value="3"></th> -->
                                             <!-- <th>ID</th> -->
                                             <th>Name</th>
-                                            <th>Number</th>
                                             <th>age</th>
                                             <th>Address</th>
                                             <th>Action</th>
@@ -57,7 +74,6 @@
                                             <!-- <td><input type="checkbox" name="post[]" value="3"></td> -->
                                             <!-- <td>{{ $teachers->teacher_id}}</td> -->
                                              <td>{{ $teachers->name }}</td>
-                                             <td>{{ $teachers->number}}</td>
                                             <td>{{ $teachers->age }}</td> 
                                             <td>{{ $teachers->address }}</td> 
 
@@ -73,11 +89,11 @@
                                                 <i class="fa fa-edit"></i>
                                              </button></a>
 
-                                            <a href="#">
-                                            <button  class="btn btn-danger btn-sm " title="delete">
-                                                
-                                                <i class="fa fa-trash-o"></i>
-                                            </button></a>
+                                             <a href="{{url('/teacher/delete')}}/{{$teachers->teacher_id}}" onclick="confirmation(event)">
+                                                <button class="btn btn-danger btn-sm" title="delete" >
+                                                        <i class="fa fa-trash-o"></i>
+                                                </button></a>
+
                                              </td>
                                              
                                         </tr>

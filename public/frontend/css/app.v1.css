@@ -13022,6 +13022,10 @@ fieldset[disabled] .btn-gplus.active {
     background-color: #2e3e4e;
 }
 
+a{
+    padding: 5px 15px;
+    color: black;
+}
 .bg-dark a {
     color: #adbece;
 }
@@ -13633,7 +13637,7 @@ fieldset[disabled] .btn-gplus.active {
 }
 
 .line {
-    *width: 100%;
+    width: 100%;
     height: 2px;
     margin: 10px 0;
     font-size: 0;
@@ -14340,5 +14344,13 @@ fieldset[disabled] .btn-gplus.active {
     .wrapper-lg {
         padding: 15px;
     }
+    /* .FormTeacher{
+        position: absolute;
+        left: 20%;
+    } */
+  h3{
+    position: absolute;
+    left: 20%;
+  }
 }
 
