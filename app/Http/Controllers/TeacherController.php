@@ -76,6 +76,20 @@ class TeacherController extends Controller
         return redirect('/teachers');
       }
 
+      // public function search(Request $request){
+      //   $output='';
+      //   $teacher= teacher::where('name','LIKE','%'.$request->search.'%')->orWhere('email','LIKE','%'.$request->search.'%')->get();
+
+      //   foreach($teacher as $teachers){
+      //       $output.=
+
+      //       '<tr>
+      //       <td>'.$teachers->name.'</td>
+      //       <td>'.$teachers->email.'</td>
+      //       </tr>';
+      //   }
+      //   return response($output);
+      // }
 
       
 

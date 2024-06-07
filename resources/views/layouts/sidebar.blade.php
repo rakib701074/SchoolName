@@ -28,7 +28,8 @@
                                             <li class="active"> <a href="{{ Route('students') }}" class="active"> <i
                                                         class="fa fa-angle-right"></i> <span><b>Students</b></span>
                                                 </a> </li>
-                                            <li> <a href="{{url('/teachers')}}"> <i class="fa fa-angle-right"></i>
+
+                                            <li class="active"> <a href="{{url('/teachers')}}"> <i class="fa fa-angle-right"></i>
                                                     <span><b>Teachers</b></span> </a> </li>
                                         </ul>
                                     </li>
@@ -36,7 +37,29 @@
 
                                     {{-- dashboard --}}
 
-                                    <li> <a href=""> <i class="fa fa-flask icon"> <b
+                                    <li class="active">
+                                        <a href="" class="active">
+                                                <i class="fa fa-flask icon">
+                                                
+                                                 <b class="bg-primary"></b> </i>
+                                            <span class="pull-right">
+                                                <i class="fa fa-angle-down text"></i> <i
+                                                    class="fa fa-angle-up text-active"></i> </span>
+                                            <span>Back Office</span> </a>
+                                        <ul class="nav lt">
+                                            <li class="active"> <a href="{{url('/teachers')}}" class="active"> <i
+                                                        class="fa fa-angle-right"></i> <span><b>Office</b></span>
+                                                </a> </li>
+                                            {{-- <li> <a href=""> <i class="fa fa-angle-right"></i>
+                                                    <span><b></b></span> </a> </li> --}}
+                                        </ul>
+                                    </li>
+
+
+
+
+
+                                    {{-- <li> <a href=""> <i class="fa fa-flask icon"> <b
                                                     class="bg-success"></b>
                                             </i> <span class="pull-right"> <i class="fa fa-angle-right text"></i>
                                                 <i class="fa fa-angle-up text-active"></i> </span> <span>Back Office
@@ -49,6 +72,7 @@
                                                 <i class="fa fa-angle-up text-active"></i> </span> <span>Back Office
                                                 </span> </a>
                                     </li>
+                                     --}}
                                     <footer class="footer lt hidden-xs b-t b-dark mainFooter">
                                          <a href="#nav" data-toggle="class:nav-xs"
                                             class="pull-right btn btn-sm btn-dark btn-icon"> <i class="fa fa-angle-left text"></i>

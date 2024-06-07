@@ -20,7 +20,36 @@
                     }
                 })
             }
+
          </script>
+         {{-- <script type="text/javascript">
+                $('#search').on('click',function(){
+                $value=$(this).val();
+
+                if($value){
+                   $('.alldata').hide();
+                   $('.searchdata').show();
+                }else{
+                    $('.alldata').show();
+                   $('.searchdata').hide();
+                }
+
+                $.ajax({
+                    type: 'get',
+                    url: '{{URL::to('search')}}',
+                    data:{'search':$value},
+                    success:function(data)
+                    {
+                        console.log(data);
+                        $('#Content').html(data);
+                    }
+                })
+            })
+
+         </script> --}}
+
+
+         
 
 
 
@@ -28,7 +57,7 @@
                     <section class="vbox">
                         <section class="panel panel-default">
                             <div style="display: flex;justify-content:space-between">
-                                <header class="panel-heading"> Responsive Table </header>
+                                <header class="panel-heading"></header>
                                 <span style="margin:10px">
                                     <a href="{{url('/teacher')}}" class="btn btn-s-md btn-primary">Add Student</a>
                                 </span>
@@ -43,13 +72,24 @@
                                     </select> 
                                     <button class="btn btn-sm btn-default">Apply</button> 
                                 </div>
-                                <div class="col-sm-3">
-                                    <div class="input-group"> <input type="text" class="input-sm form-control"
-                                            placeholder="Search"> <span class="input-group-btn"> <button
+
+                                 <div class="col-sm-3">
+                                    <div class="input-group"> 
+                                        <input type="search" id="search" class="input-sm form-control"
+                                            placeholder="Search Something Here"> 
+                                            
+                                             <span class="input-group-btn"> <button
                                                 class="btn btn-sm btn-default" type="button">Go!</button> </span>
-                                    </div>
+                                     </div>
                                 </div>
                             </div>
+
+                                {{-- <div class="container">
+                                    <div class="search">
+                                        <input type="search" align="center" placeholder="search somrthing" class="form-control">
+                                    </div>
+                                </div>
+                            {{-- </div>  --}}
 
                            
 
@@ -60,7 +100,7 @@
                                     <thead>
                                         <tr>
                                             <!-- <th><input type="checkbox" name="post[]" value="3"></th> -->
-                                            <!-- <th>ID</th> -->
+                                            {{-- <th>ID</th>  --}}
                                             <th>Name</th>
                                             <th>age</th>
                                             <th>Address</th>
@@ -68,7 +108,7 @@
                                             <th width="30"></th>
                                         </tr>
                                     </thead>
-                                    <tbody>
+                                    <tbody class="alldata">
                                         @foreach($teacher as $teachers) 
                                         <tr>
                                             <!-- <td><input type="checkbox" name="post[]" value="3"></td> -->
@@ -99,6 +139,8 @@
                                         </tr>
                                         @endforeach 
                                     </tbody>
+
+                                    <tbody id="Content" class="searchdata"></tbody>
                                 </table>
                             </div>
                             
