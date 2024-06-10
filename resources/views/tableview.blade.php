@@ -6,7 +6,7 @@
                     <section class="vbox">
                         <section class="panel panel-default">
                             <div style="display: flex;justify-content:space-between">
-                                <header class="panel-heading"> Responsive Table </header>
+                                
                                 {{-- <span style="margin:10px">
                                     <a href="{{url('/teacher')}}" class="btn btn-s-md btn-primary">Add Student</a>
                                 </span> --}}

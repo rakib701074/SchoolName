@@ -1863,7 +1863,7 @@ pre code {
     width: 58.33333333%;
 }
 
-.col-xs-6 {
+.col-sm-6 {
     width: 50%;
 }
 
@@ -6201,10 +6201,12 @@ a.list-group-item-danger.active:focus {
     border-radius: 4px;
     -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
     box-shadow: 0 1px 1px rgba(0, 0, 0, .05);
+    
 }
 
 .panel-body {
     padding: 15px;
+    
 }
 
 .panel-heading {
@@ -6414,7 +6416,7 @@ a.list-group-item-danger.active:focus {
 }
 
 .panel-group .panel-heading {
-    border-bottom: 0;
+    border-bottom: 0;   
 }
 
 .panel-group .panel-heading+.panel-collapse>.panel-body {
@@ -14345,4 +14347,4 @@ fieldset[disabled] .btn-gplus.active {
     width: 100%;
     position: absolute;
     bottom: 0;
-}
+} 

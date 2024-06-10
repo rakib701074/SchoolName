@@ -29,7 +29,7 @@
                             <div style="display: flex;justify-content:space-between">
                                 <header class="panel-heading"></header>
                                 <span style="margin:10px">
-                                    <a href="{{ url('/addStudent') }}" class="btn btn-s-md btn-primary">Add Student</a>
+                                    <a href="{{ url('/addStudent') }}" class="btn btn-s-md btn-primary btn-rounded">New Student</a>
                                 </span>
                             </div>
                             <div class="row wrapper">
