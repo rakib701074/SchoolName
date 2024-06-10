@@ -19,13 +19,25 @@
     <link rel="stylesheet" href="{{ url('frontend/css/app.v1.css') }}" type="text/css" />
     <!--[if lt IE 9]> <script src="js/ie/html5shiv.js"></script> <script src="js/ie/respond.min.js"></script> <script src="js/ie/excanvas.js"></script> <![endif]-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <style>
+        .logoicon:hover{
+            color: #1b1919 !important;
+            background-image: none;
+            filter: none;
+            background-color: #f1f1f1 !important;
+            color: #717171;
+        }
+        .logoicon{
+            color: #1b1919 !important;
+        }
+    </style>
 </head>
 
 <body class="">
     <header class="bg-dark dk header navbar navbar-fixed-top-xs">
         <div class="navbar-header aside-md"> <a class="btn btn-link visible-xs"
                 data-toggle="class:nav-off-screen,open" data-target="#nav,html"> <i class="fa fa-bars"></i> </a> <a
-                href="#" class="navbar-brand" data-toggle="fullscreen"><img
+                 class="navbar-brand" data-toggle="fullscreen"><img
                     src="{{ url('frontend/images/logo.png') }}" class="m-r-sm">SCHOOL
                 NAME</a> <a class="btn btn-link visible-xs" data-toggle="dropdown" data-target=".nav-user"> <i
                     class="fa fa-cog"></i> </a> </div>
@@ -61,25 +73,32 @@
             </li>
 
 
-            <li class="dropdown"> <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span
+            <li class="dropdown">
+                 <a href="#" class="dropdown-toggle" data-toggle="dropdown"> 
+                <span
                         class="thumb-sm avatar pull-left"> <img src="{{ url('frontend/images/avatarr.jpg') }}">
                     </span>
-                    Students <b class="caret"></b> </a>
-                <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
+                    {{ Auth::user()->name }} <b class="caret"></b> </a>
+               
+                    <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
                     <li> <a href="#">Settings</a> </li>
                     <li> <a href="{{url('profile')}}">Profile</a> </li>
-
+              
                     <li class="divider"></li>
-                    <li> <form method="POST" action="{{ route('logout') }}">
+             <li> 
+                
+                <form method="POST"  action="{{ route('logout') }}">
                     @csrf
-
-                    <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                    <x-responsive-nav-link  :href="route('logout')"
+                           class="logoicon" onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
+
+
                 </form> </li>
                 </ul>
+
             </li>
         </ul>
     </header>

@@ -32,7 +32,6 @@ class TeacherController extends Controller
 
         $teacher = new teacher;
         $teacher->name = $request['name'];
-        $teacher->number = $request['number'];
         $teacher->age = $request['age'];
         $teacher->address = $request['address'];
         $teacher->save();
@@ -40,17 +39,18 @@ class TeacherController extends Controller
     }
 
     // delete
-    public function delete(Request $request){
-      $teacher = teacher::find($teacher->input('in'));
-
-            // echo "<pre>";
-        // print_r($teacher->toArray());
-      
-        // }
-        // return redirect('/teachers');
-      
-    
+      public function delete($id)
+      {
+          $teacher = teacher::find($id);
+          // echo "<pre>";
+          // print_r($teacher);die;
+          if (!is_null($teacher)) {
+              $teacher->delete();
+          }
+          return redirect('/teachers');
       }
+
+    
 
 
       public function edit($id){
@@ -70,7 +70,6 @@ class TeacherController extends Controller
       public function update($id, Request $request){
         $teacher = teacher::find($id);
         $teacher->name = $request['name'];
-        $teacher->number = $request['number'];
         $teacher->age = $request['age'];
         $teacher->address = $request['address'];
         $teacher->save();
@@ -84,7 +83,7 @@ class TeacherController extends Controller
         $teacher = teacher::find($id);
         $data = compact('teacher');
         // echo '<pre>';
-        // print_r($teacher->toArray());
+        // print_r($teacher->toArray());exit;
         return view('view')->with($data);
       }
 
