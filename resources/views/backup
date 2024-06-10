@@ -136,13 +136,78 @@
 
 
 
+<!-- delete -->
 
 
 
 
 
 
+                    
+<div class="col-sm-3">
+    <form action="">
+        <div class="input-group">
+            <input type="search" name="search" id="" class="input-sm form-control"
+                placeholder="Search by name or email" value="{{ $search }}">
+            <span class="input-group-btn">
+                <button class="btn btn-sm btn-default">Go!</button>
+            </span>
+        </div>
+    </form>
+</div>
 
+</div>
+
+
+
+
+
+<div class="table-responsive">
+<table class="table table-striped b-t b-light data-table">
+    <thead>
+        <tr>
+            <!-- <th width="20"><input type="checkbox"></th>
+                            <th class="th-sortable" data-toggle="class">ID <span
+                                    class="th-sort"> <i class="fa fa-sort-down text"></i> <i
+                                        class="fa fa-sort-up text-active"></i> <i
+                                        class="fa fa-sort"></i> </span> </th> -->
+            <!-- <th><input type="checkbox" name="post[]" value="3"></th>  -->
+            <!-- <th>ID</th> -->
+            <th>Name</th>
+            <th>email</th>
+            <th>state</th>
+            <th>Address</th>
+            <th>Action</th>
+            <th width="30"></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach ($students as $student)
+            <tr>
+                <!-- <td><input type="checkbox" name="post[]" value="3"></td>  -->
+                <!-- <td>{{ $student->student_id }}</td> -->
+                <td>{{ $student->name }}</td>
+                <td>{{ $student->email }}</td>
+                <td>{{ $student->state }} </td>
+                <td>{{ $student->city }}</td>
+                
+                <td> <a href="">
+                        <button class="btn btn-info btn-sm" title="update">
+                            <i class="fa fa-eye"></i>
+                        </button></a>
+                    <a href="{{ route('student-edit', ['id' => $student->student_id]) }}">
+                        <button class="btn btn-primary btn-sm" title="edit">
+                            <i class="fa fa-edit"></i>
+                        </button></a>
+                    <a href="{{ url('/student/delete') }}/{{ $student->student_id }}" onclick="confirmation(event)">
+                        <button class="btn btn-danger btn-sm" title="delete" data-id="">
+                            <i class="fa fa-trash-o"></i>
+                        </button></a></td>
+            </tr>
+        @endforeach
+    </tbody>
+</table>
+</div>
 
 
 

@@ -23,13 +23,6 @@ Route::middleware('auth')->group(function () {
 
 
 
-
-
-// Route::get('/', [StudentsController::class,'index']);
-
-Route::get('/students', [StudentsController::class,'studentslist'])->name('students');
-
-
 Route::get('/profile', function(){
     return view('profile');
 });
@@ -37,6 +30,8 @@ Route::get('/profile', [StudentsController::class,'studentprofile'])->name('prof
 
 // student
 Route::get('/student/delete/{id}' , [StudentsController::class,'delete'])->name('student-delete');
+
+
 
 Route::get('/student/edit/{id}', [StudentsController::class,'edit'])->name('student-edit');
 Route::post('/student/update/{id}', [StudentsController::class,'update'])->name('student-update');
@@ -58,6 +53,8 @@ Route::get('/teachers', [TeacherController::class,'tableList'])->name('teachers'
 
 
 Route::get('/teacher/delete/{id}', [TeacherController::class,'delete'])->name('teacher-delete');
+
+// Route::get('/search', [TeacherController::class,'search']);
 
 
 Route::get('/eye/view/{id}', [TeacherController::class,'view'])->name('student-view');
