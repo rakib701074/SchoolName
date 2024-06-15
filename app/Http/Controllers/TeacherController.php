@@ -39,16 +39,26 @@ class TeacherController extends Controller
     }
 
     // delete
-      public function delete($id)
-      {
-          $teacher = teacher::find($id);
-          // echo "<pre>";
-          // print_r($teacher);die;
+      public function delete(Request $request){
+        if(!empty($request->id)){
+          $teacher = teacher::find($request->id);
           if (!is_null($teacher)) {
               $teacher->delete();
           }
-          return redirect('/teachers');
+          return response()->json([
+            'status'=>103,
+            'message' => 'Teacher deleted successfully'
+          ]);
+        }else{
+          return response()->json([
+            'status'=>500,
+            'message' => 'Parameter missing'
+          ]);
+        }
       }
+
+
+    
 
     
 
@@ -93,12 +103,30 @@ class TeacherController extends Controller
 
       
 
-      public function view($id){
-        $teacher = teacher::find($id);
-        $data = compact('teacher');
-        // echo '<pre>';
-        // print_r($teacher->toArray());exit;
-        return view('view')->with($data);
+      // public function view($id){
+      //   $teacher = teacher::find($id);
+      //   $data = compact('teacher');
+      //   // echo '<pre>';
+      //   // print_r($teacher->toArray());exit;
+      //   return view('view')->with($data);
+      // }
+
+      public function view(Request $request){
+        if(!empty($request->id)){
+          $teacher = teacher::find($request->id);
+          if(!is_null($teacher)) {
+            $teacher->view();
+          }
+          return response()->json([
+            'status'=>105,
+            'message'=>'view successfully' 
+          ]);
+        }else{
+          return response()->json([
+            'status'=>400,
+            'message'=>'view parameter missing'
+          ]);
+        }
       }
 
       public function viewUpdate($id, Request $request){

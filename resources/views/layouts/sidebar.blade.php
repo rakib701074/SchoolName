@@ -1,15 +1,8 @@
 <section class="vbox">
-
-
-
-    {{-- sidebar --}}
     <section>
         <section class="hbox stretch"> <!-- .aside -->
             <aside class="bg-dark lter aside-md hidden-print hidden-xs" id="nav">
                 <section class="vbox">
-                   
-                    {{-- scrollable --}}
-
                     <section class="w-f scrollable">
                         <div class="slim-scroll" data-height="auto" data-disable-fade-out="true" data-distance="0"
                             data-size="5px" data-color="#333333"> <!-- nav -->

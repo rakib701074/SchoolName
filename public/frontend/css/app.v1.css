@@ -11039,6 +11039,7 @@ a:hover .caret-white {
         table-layout: fixed;
         border-spacing: 0;
         width: 100%;
+        
     }
 
     .hbox>aside,
@@ -14354,4 +14355,4 @@ fieldset[disabled] .btn-gplus.active {
     width: 100%;
     position: absolute;
     bottom: 0;
-} 
+}

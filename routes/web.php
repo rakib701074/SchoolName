@@ -29,7 +29,7 @@ Route::get('/profile', function(){
 Route::get('/profile', [StudentsController::class,'studentprofile'])->name('profile');
 
 // student
-Route::get('/student/delete/{id}' , [StudentsController::class,'delete'])->name('student-delete');
+Route::get('/student/delete' , [StudentsController::class,'delete'])->name('student-delete');
 
 
 
@@ -52,12 +52,12 @@ Route::get('/teacher' ,function(){
 Route::get('/teachers', [TeacherController::class,'tableList'])->name('teachers');
 
 
-Route::get('/teacher/delete/{id}', [TeacherController::class,'delete'])->name('teacher-delete');
+Route::post('/teacher/delete', [TeacherController::class,'delete'])->name('teacher-delete');
 
 // Route::get('/search', [TeacherController::class,'search']);
 
 
-Route::get('/eye/view/{id}', [TeacherController::class,'view'])->name('student-view');
+Route::get('/eye/view', [TeacherController::class,'view'])->name('student-view');
 Route::get('/eye/table/{id}', [TeacherController::class,'viewUpdate'])->name('view-table');
 
 
